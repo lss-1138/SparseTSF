@@ -31,9 +31,6 @@ parser.add_argument('--pred_len', type=int, default=96, help='prediction sequenc
 # SparseTSF
 parser.add_argument('--period_len', type=int, default=24, help='period length')
 
-# DLinear
-#parser.add_argument('--individual', action='store_true', default=False, help='DLinear: a linear layer for each variate(channel) individually')
-
 # PatchTST
 parser.add_argument('--fc_dropout', type=float, default=0.05, help='fully connected dropout')
 parser.add_argument('--head_dropout', type=float, default=0.0, help='head dropout')

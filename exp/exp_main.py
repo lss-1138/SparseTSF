@@ -1,6 +1,6 @@
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import Informer, Autoformer, Transformer, DLinear, Linear, PatchTST, SparseTSF, Film, FEDformer
+from models import Informer, Autoformer, Transformer, DLinear, Linear, PatchTST, SparseTSF
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -32,9 +32,7 @@ class Exp_Main(Exp_Basic):
             'DLinear': DLinear,
             'Linear': Linear,
             'PatchTST': PatchTST,
-            'SparseTSF': SparseTSF,
-            'Film': Film,
-            'FEDformer': FEDformer
+            'SparseTSF': SparseTSF
         }
         model = model_dict[self.args.model].Model(self.args).float()
 
@@ -318,7 +316,7 @@ class Exp_Main(Exp_Basic):
         f.close()
 
         # np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe,rse, corr]))
-        np.save(folder_path + 'pred.npy', preds)
+        # np.save(folder_path + 'pred.npy', preds)
         # np.save(folder_path + 'true.npy', trues)
         # np.save(folder_path + 'x.npy', inputx)
         return
