@@ -1,6 +1,6 @@
 # SparseTSF
 
-Welcome to the official repository of the SparseTSF paper: "SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters"
+Welcome to the official repository of the SparseTSF paper: "[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
 
 ## Updates
 🚩 **News** (2024.05) SparseTSF has been accepted as a paper at **_ICML 2024_**, receiving an **average rating of 7 with confidence of 4.5**.
@@ -76,6 +76,17 @@ If you seek higher predictive performance, we recommend our alternative work, **
 
 ## Citation
 If you find this repo useful, please cite our paper.
+```
+@misc{lin2024sparsetsf,
+      title={SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters}, 
+      author={Shengsheng Lin and Weiwei Lin and Wentai Wu and Haojun Chen and Junjie Yang},
+      year={2024},
+      eprint={2405.00946},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
+
 
 ## Contact
 If you have any questions or suggestions, feel free to contact:
