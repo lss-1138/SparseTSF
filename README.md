@@ -65,7 +65,7 @@ sh scripts/SparseTSF/etth1.sh
 
 SparseTSF relies on the inherent periodicity in the data. If you intend to use SparseTSF on your data, please first ascertain **whether your data exhibits periodicity**, which can be determined through ACF analysis. 
 
-We provide an example in the "ACF_ETTh1.ipynb" notebook to determine the primary period of the ETTh1 dataset. You can utilize it to ascertain the periodicity of your dataset and set the `period_len` parameter accordingly.
+We provide an example in the [ACF_ETTh1.ipynb](https://github.com/lss-1138/SparseTSF/blob/main/ACF_ETTh1.ipynb) notebook to determine the primary period of the ETTh1 dataset. You can utilize it to ascertain the periodicity of your dataset and set the `period_len` parameter accordingly.
 
 It is important to note a special case where the dataset's period is excessively large. For instance, in ETTm1, due to dense sampling, its period is 144. Resampling with too large a period results in very short subsequences with sparse connections, leading to underutilization of information. In such cases, setting `period_len` to [2-6], i.e., adopting a denser sparse strategy, can be beneficial. For more details, refer to the discussion in Appendix C.2.
 ## Further Reading
@@ -77,13 +77,11 @@ If you seek higher predictive performance, we recommend our alternative work, **
 ## Citation
 If you find this repo useful, please cite our paper.
 ```
-@misc{lin2024sparsetsf,
-      title={SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters}, 
-      author={Shengsheng Lin and Weiwei Lin and Wentai Wu and Haojun Chen and Junjie Yang},
-      year={2024},
-      eprint={2405.00946},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+@article{lin2024sparsetsf,
+  title={SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters},
+  author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Yang, Junjie},
+  journal={arXiv preprint arXiv:2405.00946},
+  year={2024}
 }
 ```
 
