@@ -3,6 +3,8 @@
 Welcome to the official repository of the SparseTSF paper: "[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
 
 ## Updates
+🚩 **News** (2024.06) SparseTSF paper has been selected for an **_Oral_ presentation at ICML 2024**.
+
 🚩 **News** (2024.05) SparseTSF has been accepted as a paper at **_ICML 2024_**, receiving an **average rating of 7 with confidence of 4.5**.
 
 ## Introduction
