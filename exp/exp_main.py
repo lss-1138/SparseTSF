@@ -293,9 +293,11 @@ class Exp_Main(Exp_Basic):
             test_params_flop(self.model, (batch_x.shape[1],batch_x.shape[2]))
             # test_params_flop((batch_x.shape[1], batch_x.shape[2]))
             exit()
-        preds = np.array(preds)
-        trues = np.array(trues)
-        inputx = np.array(inputx)
+
+        # fix bug
+        preds = np.concatenate(preds, axis=0)
+        trues = np.concatenate(trues, axis=0)
+        inputx = np.concatenate(inputx, axis=0)
 
         preds = preds.reshape(-1, preds.shape[-2], preds.shape[-1])
         trues = trues.reshape(-1, trues.shape[-2], trues.shape[-1])
