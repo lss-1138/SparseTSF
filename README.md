@@ -3,11 +3,11 @@
 Welcome to the official repository of the SparseTSF paper: "[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
 
 ## Updates
-🚩 **News** (2024.07) We have now fixed a long-standing bug (see description in [FITS](https://github.com/VEWOXIC/FITS) and [TFB](https://github.com/decisionintelligence/TFB) ) in the code framework and supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug in [this table]().
+🚩 **News** (2024.07) We have now fixed a long-standing bug (see description in [FITS](https://github.com/VEWOXIC/FITS) and [TFB](https://github.com/decisionintelligence/TFB) ) in the code framework and supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug in [this table](https://github.com/lss-1138/SparseTSF/blob/main/README.md#full-results).
 
-🚩 **News** (2024.06) SparseTSF paper has been selected for an **_Oral_ presentation at ICML 2024 (acceptance rate less than 1.5%)**.
+🚩 **News** (2024.06) SparseTSF paper has been selected for an **_Oral_** presentation at ICML 2024 (acceptance rate less than 1.5%).
 
-🚩 **News** (2024.05) SparseTSF has been accepted as a paper at **_ICML 2024_**, receiving an **average rating of 7 with confidence of 4.5**.
+🚩 **News** (2024.05) SparseTSF has been accepted as a paper at **_ICML 2024_**, receiving an average rating of 7 with confidence of 4.5.
 
 ## Introduction
 SparseTSF is a novel, extremely lightweight model for Long-term Time Series Forecasting (LTSF).
@@ -109,7 +109,7 @@ If you find this repo useful, please cite our paper.
 
 
 ## Full results
-There was a longstanding bug in our current framework where the last batch of data was discarded during the testing phase (i.e., `drop_last = False`). This might have affected the model's performance, especially when using a large batch size on small datasets. We have now fixed this issue (see [data_provider/data_factory.py]() and [exp/exp_main.py]()).
+There was a longstanding bug in our current framework where the last batch of data was discarded during the testing phase (i.e., `drop_last = False`). This might have affected the model's performance, especially when using a large batch size on small datasets. We have now fixed this issue (see [data_provider/data_factory.py](https://github.com/lss-1138/SparseTSF/blob/8ae055490fb8878fd302e5b6bd43803beb5bb763/data_provider/data_factory.py#L19) and [exp/exp_main.py](https://github.com/lss-1138/SparseTSF/blob/8ae055490fb8878fd302e5b6bd43803beb5bb763/exp/exp_main.py#L297)).
 
 We have now supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug as follows.  Herein, we consistently used a lookback length of 720 and MSE as the loss function. For FITS, we defaulted to using COF at the 5th harmonic.
 
