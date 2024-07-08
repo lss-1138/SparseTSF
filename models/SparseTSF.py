@@ -15,7 +15,7 @@ class Model(nn.Module):
         self.seg_num_x = self.seq_len // self.period_len
         self.seg_num_y = self.pred_len // self.period_len
 
-        self.conv1d = nn.Conv1d(in_channels=1, out_channels=1, kernel_size=1 + 2 * self.period_len // 2,
+        self.conv1d = nn.Conv1d(in_channels=1, out_channels=1, kernel_size=1 + 2 * (self.period_len // 2),
                                 stride=1, padding=self.period_len // 2, padding_mode="zeros", bias=False)
 
         self.linear = nn.Linear(self.seg_num_x, self.seg_num_y, bias=False)
