@@ -3,7 +3,7 @@
 Welcome to the official repository of the SparseTSF paper: "[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
 
 ## Updates
-🚩 **News** (2024.07) We have now fixed a long-standing bug (see description in [FITS](https://github.com/VEWOXIC/FITS) and [TFB](https://github.com/decisionintelligence/TFB) ) in the code framework and supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug in [this table](https://github.com/lss-1138/SparseTSF/blob/main/README.md#full-results).
+🚩 **News** (2024.07) We have now fixed a long-standing bug (see description in [FITS](https://github.com/VEWOXIC/FITS) and [TFB](https://github.com/decisionintelligence/TFB) ) in the code framework and supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug in [this table](https://github.com/lss-1138/SparseTSF?tab=readme-ov-file#full-results).
 
 🚩 **News** (2024.06) SparseTSF paper has been selected for an **_Oral_** presentation at ICML 2024 (acceptance rate less than 1.5%).
 
@@ -153,7 +153,7 @@ We have now supplemented the full results (including **MSE and MAE**) of SparseT
 
 ## Contact
 If you have any questions or suggestions, feel free to contact:
-- Shengsheng Lin ([linss2000@foxmail.com]())
+- Shengsheng Lin ([cslinshengsheng@mail.scut.edu.cn]())
 - Weiwei Lin ([linww@scut.edu.cn]())
 - Wentai Wu ([wentaiwu@jnu.edu.cn]())
 
