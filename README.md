@@ -102,10 +102,10 @@ If you seek higher predictive performance, we recommend our alternative work, **
 ## Citation
 If you find this repo useful, please cite our paper.
 ```
-@article{lin2024sparsetsf,
+@inproceedings{sparsetsf,
   title={SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters},
   author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Yang, Junjie},
-  journal={arXiv preprint arXiv:2405.00946},
+  booktitle={Forty-first International Conference on Machine Learning},
   year={2024}
 }
 ```
