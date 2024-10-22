@@ -1,12 +1,25 @@
 #!/bin/bash
 
-sh scripts/SparseTSF/etth1.sh;
-sh scripts/SparseTSF/etth2.sh;
-sh scripts/SparseTSF/electricity.sh;
-sh scripts/SparseTSF/traffic.sh;
-sh scripts/SparseTSF/ettm1.sh;
-sh scripts/SparseTSF/ettm2.sh;
-sh scripts/SparseTSF/weather.sh;
+# linear
+sh scripts/SparseTSF/linear/etth1.sh;
+sh scripts/SparseTSF/linear/etth2.sh;
+sh scripts/SparseTSF/linear/electricity.sh;
+sh scripts/SparseTSF/linear/traffic.sh;
+sh scripts/SparseTSF/linear/ettm1.sh;
+sh scripts/SparseTSF/linear/ettm2.sh;
+sh scripts/SparseTSF/linear/weather.sh;
+sh scripts/SparseTSF/linear/solar.sh;
+
+
+# mlp
+sh scripts/SparseTSF/mlp/etth1.sh;
+sh scripts/SparseTSF/mlp/etth2.sh;
+sh scripts/SparseTSF/mlp/electricity.sh;
+sh scripts/SparseTSF/mlp/traffic.sh;
+sh scripts/SparseTSF/mlp/ettm1.sh;
+sh scripts/SparseTSF/mlp/ettm2.sh;
+sh scripts/SparseTSF/mlp/weather.sh;
+sh scripts/SparseTSF/mlp/solar.sh;
 
 
 

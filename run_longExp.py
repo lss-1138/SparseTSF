@@ -30,6 +30,8 @@ parser.add_argument('--pred_len', type=int, default=96, help='prediction sequenc
 
 # SparseTSF
 parser.add_argument('--period_len', type=int, default=24, help='period length')
+parser.add_argument('--model_type', default='linear', help='model type: linear/mlp')
+
 
 # PatchTST
 parser.add_argument('--fc_dropout', type=float, default=0.05, help='fully connected dropout')
@@ -49,7 +51,7 @@ parser.add_argument('--embed_type', type=int, default=0, help='0: default 1: val
 parser.add_argument('--enc_in', type=int, default=7, help='encoder input size') # DLinear with --individual, use this hyperparameter as the number of channels
 parser.add_argument('--dec_in', type=int, default=7, help='decoder input size')
 parser.add_argument('--c_out', type=int, default=7, help='output size')
-parser.add_argument('--d_model', type=int, default=512, help='dimension of model')
+parser.add_argument('--d_model', type=int, default=128, help='dimension of model')
 parser.add_argument('--n_heads', type=int, default=8, help='num of heads')
 parser.add_argument('--e_layers', type=int, default=2, help='num of encoder layers')
 parser.add_argument('--d_layers', type=int, default=1, help='num of decoder layers')
@@ -111,13 +113,14 @@ if args.is_training:
         torch.manual_seed(fix_seed_list[ii])
         np.random.seed(fix_seed_list[ii])
         # setting record of experiments
-        setting = '{}_{}_{}_ft{}_sl{}_pl{}_{}_{}_seed{}'.format(
+        setting = '{}_{}_{}_ft{}_sl{}_pl{}_{}_{}_{}_seed{}'.format(
             args.model_id,
             args.model,
             args.data,
             args.features,
             args.seq_len,
             args.pred_len,
+            args.model_type,
             args.des,
             ii,
             fix_seed_list[ii])
@@ -136,13 +139,14 @@ if args.is_training:
         torch.cuda.empty_cache()
 else:
     ii = 0
-    setting = '{}_{}_{}_ft{}_sl{}_pl{}_{}_{}_seed{}'.format(
+    setting = '{}_{}_{}_ft{}_sl{}_pl{}_{}_{}_{}_seed{}'.format(
         args.model_id,
         args.model,
         args.data,
         args.features,
         args.seq_len,
         args.pred_len,
+        args.model_type,
         args.des,
         ii,
         fix_seed_list[ii])
