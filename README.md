@@ -2,6 +2,10 @@
 
 Welcome to the official repository of the SparseTSF paper: "[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
 
+[[Poster|海报]](https://drive.google.com/file/d/1pJ32EdIPgtRAYTQWYd768N6lPxtDx3sV/view?usp=drive_link) -
+[[Slides|幻灯片]](https://drive.google.com/file/d/1UJOwT0SOEoBsPVaLEBX4gMhNKZX7CF9q/view?usp=drive_link) - 
+[[中文解读]](https://zhuanlan.zhihu.com/p/701070533)
+
 ## Updates
 🚩 **News** (2024.10)
 We have introduced a new variant, **SparseTSF/MLP**, which replaces the fully connected linear layer with a dual-layer MLP structure. SparseTSF/MLP enhances non-linear learning capabilities, demonstrating stronger competitiveness on _high-dimensional multivariate datasets_, such as Traffic (Average MSE **0.412 -> 0.396**).
