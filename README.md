@@ -106,17 +106,6 @@ The objective of this work is to explore an **ultra-lightweight** yet sufficient
 
 If you seek higher predictive performance, we recommend our alternative work, **[SegRNN](https://github.com/lss-1138/SegRNN)**, which is an innovative RNN-based model specifically designed for LTSF. By integrating Segment-wise Iterations and Parallel Multi-step Forecasting (PMF) strategies, SegRNN achieves state-of-the-art results with just a single layer of GRU, making it extremely lightweight and efficient.
 
-## Citation
-If you find this repo useful, please cite our paper.
-```
-@inproceedings{sparsetsf,
-  title={SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters},
-  author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Yang, Junjie},
-  booktitle={Forty-first International Conference on Machine Learning},
-  year={2024}
-}
-```
-
 
 ## Full results
 There was a longstanding bug in our current framework where the last batch of data was discarded during the testing phase (i.e., `drop_last = False`). This might have affected the model's performance, especially when using a large batch size on small datasets. We have now fixed this issue (see [data_provider/data_factory.py](https://github.com/lss-1138/SparseTSF/blob/8ae055490fb8878fd302e5b6bd43803beb5bb763/data_provider/data_factory.py#L19) and [exp/exp_main.py](https://github.com/lss-1138/SparseTSF/blob/8ae055490fb8878fd302e5b6bd43803beb5bb763/exp/exp_main.py#L297)).
@@ -166,6 +155,19 @@ If you have any questions or suggestions, feel free to contact:
 - Shengsheng Lin ([cslinshengsheng@mail.scut.edu.cn]())
 - Weiwei Lin ([linww@scut.edu.cn]())
 - Wentai Wu ([wentaiwu@jnu.edu.cn]())
+
+
+## Citation
+If you find this repo useful, please cite our paper.
+```
+@inproceedings{sparsetsf,
+  title={SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters},
+  author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Yang, Junjie},
+  booktitle={Forty-first International Conference on Machine Learning},
+  year={2024}
+}
+```
+
 
 ## Acknowledgement
 
