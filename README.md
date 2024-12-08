@@ -25,7 +25,7 @@ At the heart of SparseTSF lies the **Cross-Period Sparse Forecasting** technique
 
 Technically, it first downsamples the original sequences with constant periodicity into subsequences, then performs predictions on each downsampled subsequence, simplifying the original time series forecasting task into a cross-period trend prediction task. 
 
-![image](Figures/Figure2.png)
+![image](Figures/Model.png)
 
 Intuitively, SparseTSF can be perceived as a sparsely connected linear layer performing sliding prediction across periods
 
