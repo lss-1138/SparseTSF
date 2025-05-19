@@ -7,17 +7,26 @@ Welcome to the official repository of the SparseTSF paper: "[SparseTSF: Modeling
 [[中文解读]](https://zhuanlan.zhihu.com/p/701070533)
 
 ## Updates
-🚩 **News** (2024.10)
+🚩 **News** (2025.05): Our latest work, [**TQNet**](https://github.com/ACAT-SCUT/TQNet), has been accepted to **ICML 2025**. TQNet is a powerful successor to [**CycleNet**](https://github.com/ACAT-SCUT/CycleNet), addressing its limitation in *modeling inter-variable correlations* effectively.
+
+🚩 **News** (2024.10):
 We have introduced a new variant, **SparseTSF/MLP**, which replaces the fully connected linear layer with a dual-layer MLP structure. SparseTSF/MLP enhances non-linear learning capabilities, demonstrating stronger competitiveness on _high-dimensional multivariate datasets_, such as Traffic (Average MSE **0.412 -> 0.396**).
 
-🚩 **News** (2024.09) Another one of our recent works, [CycleNet](https://github.com/ACAT-SCUT/CycleNet) has been accepted as **NeurIPS 2024 Spotlight**.
+🚩 **News** (2024.09): Another one of our recent works, [**CycleNet**](https://github.com/ACAT-SCUT/CycleNet) has been accepted as **NeurIPS 2024 Spotlight**.
 CycleNet, similar to SparseTSF, focuses on _leveraging data periodicity_. However, it distinguishes itself by introducing a novel RCF technique, which uses _**learnable** recurrent cycles_ to explicitly model periodic patterns.
 
-🚩 **News** (2024.07) We have now fixed a long-standing bug (see description in [FITS](https://github.com/VEWOXIC/FITS) and [TFB](https://github.com/decisionintelligence/TFB) ) in the code framework and supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug in [this table](https://github.com/lss-1138/SparseTSF?tab=readme-ov-file#full-results).
+🚩 **News** (2024.07): We have now fixed a long-standing bug (see description in [FITS](https://github.com/VEWOXIC/FITS) and [TFB](https://github.com/decisionintelligence/TFB) ) in the code framework and supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug in [this table](https://github.com/lss-1138/SparseTSF?tab=readme-ov-file#full-results).
 
-🚩 **News** (2024.06) SparseTSF paper has been selected for an **_Oral_** presentation at ICML 2024 (acceptance rate less than 1.5%).
+🚩 **News** (2024.06): **SparseTSF** paper has been accepted as **ICML 2024 _Oral_** (acceptance rate less than 1.5%).
 
-🚩 **News** (2024.05) SparseTSF has been accepted as a paper at **_ICML 2024_**, receiving an average rating of 7 with confidence of 4.5.
+**Please note that** [**SparseTSF**](https://github.com/lss-1138/SparseTSF), [**CycleNet**](https://github.com/ACAT-SCUT/CycleNet), and [**TQNet**](https://github.com/ACAT-SCUT/TQNet) represent our continued exploration of **leveraging periodicity** for long-term time series forecasting (LTSF). 
+The differences and connections among them are as follows:
+
+|                            Model                             |        Use of Periodicity         |            Technique             |                   Effect                   |      Efficiency      |                   Strengths                   |                      Limitation                       |
+| :----------------------------------------------------------: | :-------------------------------: | :------------------------------: | :----------------------------------------: | :------------------: | :-------------------------------------------: | :---------------------------------------------------: |
+| [**SparseTSF**](https://github.com/lss-1138/SparseTSF)  <br> **(ICML 2024 Oral**) |    Indirectly via downsampling    | Cross-Period Sparse Forecasting  |             Ultra-light design             |   < 1k parameters    |       Extremely lightweight, near SOTA        | Fails to cover multi-periods **(solved by CycleNet)** |
+| [**CycleNet**](https://github.com/ACAT-SCUT/CycleNet) <br> **(NeurIPS 2024 Spotlight)** | Explicit via learnable parameters | Residual Cycle Forecasting (RCF) |         Better use of periodicity          | 100k ~ 1M parameters |      Strong performance on periodic data      | Fails in multivariate modeling **(solved by TQNet)**  |
+|                  [**TQNet**](https://github.com/ACAT-SCUT/TQNet) <br> **(ICML 2025)**                   |    Serve as global correlations     |   Temporal Query in attention mechanism  | Robust inter-variable correlation modeling |    ~1M parameters    | Enhanced multivariate forecasting performance |     Hard to scale to ultra-long look-back inputs      |
 
 ## Introduction
 SparseTSF is a novel, extremely lightweight model for Long-term Time Series Forecasting (LTSF).
