@@ -22,4 +22,23 @@ sh scripts/SparseTSF/mlp/weather.sh;
 sh scripts/SparseTSF/mlp/solar.sh;
 
 
+# linear-S
+sh scripts/SparseTSF/linear-S/etth1.sh;
+sh scripts/SparseTSF/linear-S/etth2.sh;
+sh scripts/SparseTSF/linear-S/electricity.sh;
+sh scripts/SparseTSF/linear-S/traffic.sh;
+sh scripts/SparseTSF/linear-S/ettm1.sh;
+sh scripts/SparseTSF/linear-S/ettm2.sh;
+sh scripts/SparseTSF/linear-S/weather.sh;
+sh scripts/SparseTSF/linear-S/solar.sh;
 
+
+# mlp-S
+sh scripts/SparseTSF/mlp-S/etth1.sh;
+sh scripts/SparseTSF/mlp-S/etth2.sh;
+sh scripts/SparseTSF/mlp-S/electricity.sh;
+sh scripts/SparseTSF/mlp-S/traffic.sh;
+sh scripts/SparseTSF/mlp-S/ettm1.sh;
+sh scripts/SparseTSF/mlp-S/ettm2.sh;
+sh scripts/SparseTSF/mlp-S/weather.sh;
+sh scripts/SparseTSF/mlp-S/solar.sh;

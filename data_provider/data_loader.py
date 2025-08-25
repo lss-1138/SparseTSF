@@ -433,6 +433,9 @@ class Dataset_Solar(Dataset):
         df_raw = np.stack(df_raw, 0)
         df_raw = pd.DataFrame(df_raw)
 
+        if self.features == 'S':
+            df_raw = df_raw.iloc[:, -1:]
+
         num_train = int(len(df_raw) * 0.7)
         num_test = int(len(df_raw) * 0.2)
         num_valid = int(len(df_raw) * 0.1)
