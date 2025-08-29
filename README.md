@@ -133,7 +133,8 @@ If you find this repo useful, please cite our paper.
   author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Chen, CL Philip},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
   year={2025},
-  publisher={IEEE}
+  publisher={IEEE},
+  doi={10.1109/TPAMI.2025.3602445}
 }
 ```
 
