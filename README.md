@@ -1,25 +1,24 @@
 # SparseTSF
 
-Welcome to the official repository of the SparseTSF paper: 
 
 [[Poster|海报]](https://drive.google.com/file/d/1pJ32EdIPgtRAYTQWYd768N6lPxtDx3sV/view?usp=drive_link) -
 [[Slides|幻灯片]](https://drive.google.com/file/d/1UJOwT0SOEoBsPVaLEBX4gMhNKZX7CF9q/view?usp=drive_link) - 
 [[中文解读]](https://zhuanlan.zhihu.com/p/701070533)
+
+Welcome to the official repository of the SparseTSF paper: 
 
 **Conference** version **(ICML 2024 Oral)**："[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
 
 **Journal** version **(TPAMI 2025)**: "[SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling](https://ieeexplore.ieee.org/abstract/document/11141354)" 
 
 
-If this is your first time learning about SparseTSF, we highly recommend starting with the [Journal version](https://ieeexplore.ieee.org/abstract/document/11141354), which provides a more comprehensive and thorough introduction, theoretical analysis, and experimental evaluation.
+If this is your first time learning about SparseTSF, we highly recommend starting with the [Journal version (TPAMI 2025)](https://ieeexplore.ieee.org/abstract/document/11141354), which provides a more comprehensive and thorough introduction, theoretical analysis, and experimental evaluation.
 
 
 ## Updates
 🚩 **News** (2025.08): 
-Congratulations! The extended version of SparseTSF has been accepted by **[IEEE TPAMI 2025](https://ieeexplore.ieee.org/abstract/document/11141354)**. It introduces three new contributions:
-(i) a new variant SparseTSF/MLP, which enhances forecasting in high-dimensional multivariate scenarios;
-(ii) a more in-depth theoretical analysis showing that the proposed Sparse technique acts as implicit regularization;
-(iii) more comprehensive experiments providing stronger and more thorough validation of the SparseTSF.
+Congratulations! The extended version of SparseTSF has been accepted by **[TPAMI 2025](https://ieeexplore.ieee.org/abstract/document/11141354)**. It introduces three new contributions:
+(i) a new variant **SparseTSF/MLP**; (ii) a more in-depth theoretical analysis regarding **implicit regularization**; (iii) a more comprehensive and **extensive evaluation**.
 
 🚩 **News** (2025.05): Our latest work, [**TQNet**](https://github.com/ACAT-SCUT/TQNet), has been accepted to **ICML 2025**. TQNet is a powerful successor to [**CycleNet**](https://github.com/ACAT-SCUT/CycleNet), addressing its limitation in *modeling inter-variable correlations* effectively.
 
@@ -106,7 +105,7 @@ sh run_all.sh
 Similarly, you can specify separate scripts to run independent tasks, such as obtaining results on etth1:
 
 ```
-sh scripts/SparseTSF/etth1.sh
+sh scripts/SparseTSF/linear/etth1.sh;
 ```
 
 ## Usage on Your Data
@@ -114,56 +113,8 @@ sh scripts/SparseTSF/etth1.sh
 SparseTSF relies on the inherent periodicity in the data. If you intend to use SparseTSF on your data, please first ascertain **whether your data exhibits periodicity**, which can be determined through ACF analysis. 
 
 We provide an example in the [ACF_ETTh1.ipynb](https://github.com/lss-1138/SparseTSF/blob/main/ACF_ETTh1.ipynb) notebook to determine the primary period of the ETTh1 dataset. You can utilize it to ascertain the periodicity of your dataset and set the `period_len` parameter accordingly.
-Alternatively, you can set it to [2-6] when the period length is excessively large, as mentioned earlier.
+Alternatively, you can set it to [2-6] when the period length is excessively large, as mentioned in the paper.
 
-## Further Reading
-
-The objective of this work is to explore an **ultra-lightweight** yet sufficiently powerful method to be applicable in edge scenarios with limited resources and small datasets for transfer learning and generalization. 
-
-If you seek higher predictive performance, we recommend our alternative work, **[SegRNN](https://github.com/lss-1138/SegRNN)**, which is an innovative RNN-based model specifically designed for LTSF. By integrating Segment-wise Iterations and Parallel Multi-step Forecasting (PMF) strategies, SegRNN achieves state-of-the-art results with just a single layer of GRU, making it extremely lightweight and efficient.
-
-
-## Full results
-There was a longstanding bug in our current framework where the last batch of data was discarded during the testing phase (i.e., `drop_last = False`). This might have affected the model's performance, especially when using a large batch size on small datasets. We have now fixed this issue (see [data_provider/data_factory.py](https://github.com/lss-1138/SparseTSF/blob/8ae055490fb8878fd302e5b6bd43803beb5bb763/data_provider/data_factory.py#L19) and [exp/exp_main.py](https://github.com/lss-1138/SparseTSF/blob/8ae055490fb8878fd302e5b6bd43803beb5bb763/exp/exp_main.py#L297)).
-
-We have now supplemented the full results (including **MSE and MAE**) of SparseTSF after fixing the bug as follows.  Herein, we consistently used a lookback length of 720 and MSE as the loss function. For FITS, we defaulted to using COF at the 5th harmonic.
-
-
-|             |  | SegRNN |  | FITS |  | SparseTSF |  |
-|:-----------:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|   Dataset   | Horizon | MSE | MAE | MSE | MAE | MSE | MAE |
-|    ETTh1    | 96 |**0.351** | 0.392 | 0.382  | 0.405  | 0.362 |**0.388** |
-|             | 192 |**0.390** | 0.418  | 0.417  | 0.425  | 0.403  |**0.411** |
-|             | 336 | 0.449  | 0.452  | 0.436  | 0.442  |**0.434** |**0.428** |
-|             | 720 | 0.492  | 0.494  | 0.433  | 0.455  |**0.426** |**0.447** |
-|    ETTh2    | 96 | 0.275  | 0.338  |**0.272** |**0.336** | 0.294  | 0.346  |
-|             | 192 | 0.338  | 0.380  |**0.333** |**0.375** | 0.339  | 0.377  |
-|             | 336 | 0.419  | 0.445  |**0.355** |**0.396** | 0.359  | 0.397  |
-|             | 720 | 0.431  | 0.464  |**0.378** |**0.423** | 0.383  | 0.424  |
-|    ETTm1    | 96 | 0.295  | 0.356  | 0.311  | 0.354  | 0.312  | 0.354  |
-|             | 192 |**0.334** | 0.382  | 0.340  |**0.369** | 0.347  | 0.376  |
-|             | 336 |**0.359** | 0.401  | 0.367  |**0.385** | 0.367  | 0.386  |
-|             | 720 |**0.415** | 0.435  | 0.416  |**0.412** | 0.419  | 0.413  |
-|    ETTm2    | 96 |**0.165** |**0.251** |**0.163** | 0.254  |**0.163** | 0.252  |
-|             | 192 | 0.226  | 0.300  |**0.217** | 0.291  |**0.217** |**0.290** |
-|             | 336 | 0.282  | 0.341  |**0.268** |**0.326** | 0.270  | 0.327  |
-|             | 720 | 0.361  | 0.392  |**0.349** |**0.378** | 0.352  | 0.379  |
-| Electricity | 96 |**0.130** |**0.228** | 0.145  | 0.248  | 0.138  | 0.233  |
-|             | 192 | 0.152  | 0.251  | 0.159  | 0.260  |**0.151** |**0.244** |
-|             | 336 | 0.170  | 0.272  | 0.175  | 0.275  |**0.166** |**0.260** |
-|             | 720 |**0.203** | 0.304  | 0.212  | 0.305  | 0.205  |**0.293** |
-|    Solar    | 96 |**0.175** |**0.236** | 0.192  | 0.241  | 0.195  | 0.243  |
-|             | 192 |**0.193** | 0.268  | 0.214  |**0.253** | 0.215  | 0.254  |
-|             | 336 |**0.209** | 0.263  | 0.231  |**0.261** | 0.232  | 0.262  |
-|             | 720 |**0.205** | 0.264  | 0.237  | 0.265  | 0.237  |**0.263** |
-|   traffic   | 96 |**0.356** |**0.255** | 0.398  | 0.286  | 0.389  | 0.268  |
-|             | 192 |**0.374** |**0.268** | 0.409  | 0.289  | 0.398  | 0.270  |
-|             | 336 |**0.393** |**0.273** | 0.421  | 0.294  | 0.411  | 0.275  |
-|             | 720 |**0.434** |**0.294** | 0.457  | 0.311  | 0.448  | 0.297  |
-|   weather   | 96 |**0.141** |**0.205** | 0.170  | 0.225  | 0.169  | 0.223  |
-|             | 192 |**0.185** |**0.250** | 0.212  | 0.260  | 0.214  | 0.262  |
-|             | 336 |**0.241** | 0.297  | 0.258  | 0.294  | 0.257  |**0.293** |
-|             | 720 |**0.318** | 0.352  | 0.320  |**0.339** | 0.321  | 0.340  |
 
 
 ## Contact
