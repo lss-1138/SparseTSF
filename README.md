@@ -1,12 +1,26 @@
 # SparseTSF
 
-Welcome to the official repository of the SparseTSF paper: "[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
+Welcome to the official repository of the SparseTSF paper: 
 
 [[Poster|海报]](https://drive.google.com/file/d/1pJ32EdIPgtRAYTQWYd768N6lPxtDx3sV/view?usp=drive_link) -
 [[Slides|幻灯片]](https://drive.google.com/file/d/1UJOwT0SOEoBsPVaLEBX4gMhNKZX7CF9q/view?usp=drive_link) - 
 [[中文解读]](https://zhuanlan.zhihu.com/p/701070533)
 
+**Conference** version **(ICML 2024 Oral)**："[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
+
+**Journal** version **(TPAMI 2025)**: "[SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling](https://ieeexplore.ieee.org/abstract/document/11141354)" 
+
+
+If this is your first time learning about SparseTSF, we highly recommend starting with the [Journal version](https://ieeexplore.ieee.org/abstract/document/11141354), which provides a more comprehensive and thorough introduction, theoretical analysis, and experimental evaluation.
+
+
 ## Updates
+🚩 **News** (2025.08): 
+Congratulations! The extended version of SparseTSF has been accepted by **[IEEE TPAMI 2025](https://ieeexplore.ieee.org/abstract/document/11141354)**. It introduces three new contributions:
+(i) a new variant SparseTSF/MLP, which enhances forecasting in high-dimensional multivariate scenarios;
+(ii) a more in-depth theoretical analysis showing that the proposed Sparse technique acts as implicit regularization;
+(iii) more comprehensive experiments providing stronger and more thorough validation of the SparseTSF.
+
 🚩 **News** (2025.05): Our latest work, [**TQNet**](https://github.com/ACAT-SCUT/TQNet), has been accepted to **ICML 2025**. TQNet is a powerful successor to [**CycleNet**](https://github.com/ACAT-SCUT/CycleNet), addressing its limitation in *modeling inter-variable correlations* effectively.
 
 🚩 **News** (2024.10):
@@ -38,7 +52,7 @@ Technically, it first downsamples the original sequences with constant periodici
 
 Intuitively, SparseTSF can be perceived as a sparsely connected linear layer performing sliding prediction across periods
 
-![image](Figures/Figure5.png)
+![image](Figures/Sparse.png)
 
 This approach yields two benefits: (i) effective decoupling of data periodicity and trend, enabling the model to stably identify and extract periodic features while focusing on predicting trend changes, and (ii) extreme compression of the model's parameter size, significantly reducing the demand for computational resources.
 
@@ -46,25 +60,18 @@ This approach yields two benefits: (i) effective decoupling of data periodicity 
 
 SparseTSF achieves near state-of-the-art prediction performance with less than **_1k_** trainable parameters, which makes it **_1 ~ 4_** orders of magnitude smaller than its counterparts.
 
-![img.png](Figures/Table3.png)
+![img.png](Figures/Table4.png)
 
 Additionally, SparseTSF showcases remarkable generalization capabilities (cross-domain), making it well-suited for scenarios with limited computational resources, small samples, or low-quality data.
 
 ![img.png](Figures/Table7.png)
 
-From the distribution of normalized weights for both the trained Linear model and the SparseTSF model, it can be observed that SparseTSF learns more distinct, evenly spaced weight distribution stripes compared to the Linear model. This indicates that SparseTSF has a stronger capability in extracting periodic features. This benefit arises because the Sparse technique enables the model to focus more effectively on cross-period historical information.
+The proposed Sparse technique functions as a form of **structural implicit regularization**, guiding the model to focus on the most informative elements within historical periods. This mechanism substantially improves the model’s robustness.
+![img.png](Figures/Figure5.png)
 
-![img.png](Figures/Figure4.png)
 
-Note a special case where the dataset’s period is excessively large (for instance, a period of 144 for ETTm1). Resampling with too large a period results in very short subsequences with sparse connections, leading to underutilization of information. In such cases, setting the period length to [2-6], i.e., adopting a denser sparse strategy, can be beneficial. This might be because an appropriate sparse strategy can help the model focus more on useful information and reduce the influence of irrelevant noise. We will continue to explore this aspect in future research.
-
-![img.png](Figures/Table9.png)
-
-Through examining SparseTSF’s performance with varying input lengths, we can observe that the model experiences a significant performance shift with input lengths of 96-192 on the Electricity and Traffic datasets. This is because Traffic not only has a significant daily periodic pattern (w = 24) but also a noticeable weekly periodic pattern (w = 168). In this case, a look-back of 96 cannot cover the entire weekly periodic pattern, leading to a significant performance drop. 
-
-![img.png](Figures/Table12.png)
-
-This underscores the necessity of sufficiently long look-back lengths (at least covering the entire cycle length) for accurate prediction. Given the extremely lightweight nature of SparseTSF, we strongly recommend providing sufficiently long look-back windows whenever feasible. Therefore, SparseTSF defaults to using an input length of 720. Even with this configuration, predicting a super long horizon of 720 on these datasets requires only 925 parameters (less than 1K).
+Furthermore, the distribution of normalized weights learned by the trained SparseTSF model provides additional evidence for this effect.
+![img.png](Figures/Figure6.png)
 
 
 
@@ -168,8 +175,19 @@ If you have any questions or suggestions, feel free to contact:
 
 ## Citation
 If you find this repo useful, please cite our paper.
+
 ```
-@inproceedings{sparsetsf,
+@article{lin2025sparsetsf,
+  title={SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling},
+  author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Chen, CL Philip},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025},
+  publisher={IEEE}
+}
+```
+
+```
+@inproceedings{lin2024sparsetsf,
   title={SparseTSF: Modeling Long-term Time Series Forecasting with 1k Parameters},
   author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Yang, Junjie},
   booktitle={Forty-first International Conference on Machine Learning},
