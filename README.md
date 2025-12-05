@@ -9,7 +9,7 @@ Welcome to the official repository of the SparseTSF paper:
 
 **Conference** version **(ICML 2024 Oral)**："[SparseTSF: Modeling Long-term Time Series Forecasting with *1k* Parameters](https://arxiv.org/pdf/2405.00946)"
 
-**Journal** version **(TPAMI 2025)**: "[SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling](https://ieeexplore.ieee.org/abstract/document/11141354)" 
+**Journal** version **(TPAMI 2026)**: "[SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling](https://ieeexplore.ieee.org/abstract/document/11141354)" 
 
 
 If this is your first time learning about SparseTSF, we highly recommend starting with the [Journal version (TPAMI 2025)](https://ieeexplore.ieee.org/abstract/document/11141354), which provides a more comprehensive and thorough introduction, theoretical analysis, and experimental evaluation.
@@ -17,7 +17,7 @@ If this is your first time learning about SparseTSF, we highly recommend startin
 
 ## Updates
 🚩 **News** (2025.08): 
-Congratulations! The extended version of SparseTSF has been accepted by **[TPAMI 2025](https://ieeexplore.ieee.org/abstract/document/11141354)**. It introduces three new contributions:
+Congratulations! The extended version of SparseTSF has been accepted by **[TPAMI 2026](https://ieeexplore.ieee.org/abstract/document/11141354)**. It introduces three new contributions:
 (i) a new variant **SparseTSF/MLP**; (ii) a more in-depth theoretical analysis regarding **implicit regularization**; (iii) a more comprehensive and **extensive evaluation**.
 
 🚩 **News** (2025.05): Our latest work, [**TQNet**](https://github.com/ACAT-SCUT/TQNet), has been accepted to **ICML 2025**. TQNet is a powerful successor to [**CycleNet**](https://github.com/ACAT-SCUT/CycleNet), addressing its limitation in *modeling inter-variable correlations* effectively.
@@ -128,12 +128,14 @@ If you have any questions or suggestions, feel free to contact:
 If you find this repo useful, please cite our paper.
 
 ```
-@article{lin2025sparsetsf,
-  title={SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling},
-  author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Chen, CL Philip},
-  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
-  year={2025},
-  publisher={IEEE},
+@article{lin2026sparsetsf,
+  author={Lin, Shengsheng and Lin, Weiwei and Wu, Wentai and Chen, Haojun and Chen, C. L. Philip},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling}, 
+  year={2026},
+  volume={48},
+  number={1},
+  pages={170-183},
   doi={10.1109/TPAMI.2025.3602445}
 }
 ```
