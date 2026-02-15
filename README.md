@@ -12,7 +12,7 @@ Welcome to the official repository of the SparseTSF paper:
 **Journal** version **(TPAMI 2026)**: "[SparseTSF: Lightweight and Robust Time Series Forecasting via Sparse Modeling](https://ieeexplore.ieee.org/abstract/document/11141354)" 
 
 
-If this is your first time learning about SparseTSF, we highly recommend starting with the [Journal version (TPAMI 2025)](https://ieeexplore.ieee.org/abstract/document/11141354), which provides a more comprehensive and thorough introduction, theoretical analysis, and experimental evaluation.
+If this is your first time learning about SparseTSF, we highly recommend starting with the [Journal version (TPAMI 2026)](https://ieeexplore.ieee.org/abstract/document/11141354), which provides a more comprehensive and thorough introduction, theoretical analysis, and experimental evaluation.
 
 
 ## Updates
