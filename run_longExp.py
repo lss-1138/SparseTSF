@@ -30,7 +30,7 @@ parser.add_argument('--pred_len', type=int, default=96, help='prediction sequenc
 
 # SparseTSF
 parser.add_argument('--period_len', type=int, default=24, help='period length')
-parser.add_argument('--model_type', default='linear', help='model type: linear/mlp')
+parser.add_argument('--model_type', default='mlp', help='model type: linear/mlp')
 
 
 # PatchTST
