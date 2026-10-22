@@ -23,6 +23,7 @@ do
     --seq_len $seq_len \
     --pred_len $pred_len \
     --period_len 4 \
+    --model_type 'linear' \
     --enc_in 21 \
     --train_epochs 30 \
     --patience 5 \
